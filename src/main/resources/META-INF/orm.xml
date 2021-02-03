@@ -5,7 +5,7 @@
  http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" version="2.1">
     <named-query name='Order.findUnshipped'>
         <query>
-            select d from Order d  where d.status = :status1 or where d.status = :status2  "
+            select d from Order d  where d.status = :status1 or d.status = :status2
         </query>
     </named-query>
 

@@ -30,12 +30,7 @@ private long comments;
     private Set<OrderDetail> orderDetails;
     @Version
     private long version;
-    @ManyToMany
-    @JoinTable(
-            name = "orderdetails",
-            joinColumns = @JoinColumn(name = "orderId"),
-            inverseJoinColumns = @JoinColumn(name = "productId"))
-    private Set<Product> products = new LinkedHashSet<>();
+
 
     public Order(LocalDate ordered, LocalDate required, LocalDate shipped, long comments, Customer customer, Status status) {
         this.ordered = ordered;
@@ -54,13 +49,6 @@ private long comments;
         return Collections.unmodifiableSet(orderDetails);
     }
 
-    public Set<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;

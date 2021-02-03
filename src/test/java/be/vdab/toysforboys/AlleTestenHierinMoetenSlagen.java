@@ -1,7 +1,7 @@
 package be.vdab.toysforboys;
 
 import be.vdab.toysforboys.domain.*;
-import be.vdab.toysforboys.entities.*;     /** wat is dit?**/
+//import be.vdab.toysforboys.entities.*;
 import be.vdab.toysforboys.repositories.JpaOrderRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;

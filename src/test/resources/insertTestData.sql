@@ -15,3 +15,10 @@ values (9999, 'VR-bril', '1:1', 'Oculus Quest', 1520, 5, 449.5, 9999, 1);
 
 insert into orderdetails
 values (9999, 9999, 10, 12.25);
+
+
+
+
+-- insert into orders(ordered,required,shipped,comments,costumerId,status)
+-- values
+-- ('2018-01-01', '2018-01-01', '2018-01-01', 'test',(select id from costumers where naam = 'test'), 'WAITING');

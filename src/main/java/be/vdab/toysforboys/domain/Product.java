@@ -2,6 +2,7 @@ package be.vdab.toysforboys.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -21,11 +22,13 @@ public class Product {
     @ManyToOne(optional = false)
     @JoinColumn(name = "productlineId")
     private ProductLine productLine;
+    @ElementCollection
+    @CollectionTable(name = "orderdetails",
+            joinColumns = @JoinColumn(name = "productId"))
+    private Set<OrderDetail> orderDetails;
     @Version
     private long version;
-    @ManyToMany(
-            mappedBy = "orders")
-    private Set<Order> orders = new LinkedHashSet<>();
+
 
     public Product(String name, String scale, long discription, int inStock, int inOrder, BigDecimal price, ProductLine productLine) {
         this.name = name;
@@ -35,11 +38,16 @@ public class Product {
         this.inOrder = inOrder;
         this.price = price;
         setProductLine(productLine);
+        this.orderDetails = new LinkedHashSet<>();
     }
 
 
 
     protected Product() {
+    }
+
+    public Set<OrderDetail> getOrderDetails() {
+        return Collections.unmodifiableSet(orderDetails);
     }
 
     public void setProductLine(ProductLine productLine) {
