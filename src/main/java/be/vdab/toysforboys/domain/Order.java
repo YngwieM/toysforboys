@@ -87,11 +87,11 @@ private String comments;
         if (this == o) return true;
         if (!(o instanceof Order)) return false;
         Order order = (Order) o;
-        return comments == order.comments && Objects.equals(ordered, order.ordered) && Objects.equals(required, order.required) && Objects.equals(shipped, order.shipped) && Objects.equals(customer, order.customer);
+        return Objects.equals(ordered, order.ordered) && Objects.equals(required, order.required) && Objects.equals(customer, order.customer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ordered, required, shipped, comments, customer);
+        return Objects.hash(ordered, required, customer);
     }
 }
