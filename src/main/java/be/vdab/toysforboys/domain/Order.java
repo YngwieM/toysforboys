@@ -18,9 +18,9 @@ public class Order {
     private LocalDate ordered;
     private LocalDate required;
     private LocalDate shipped;
-private long comments;
+private String comments;
     @ManyToOne(optional = false)
-    @JoinColumn(name = "costemerId")
+    @JoinColumn(name = "customerId")
     private Customer customer;
     @Enumerated(EnumType.STRING)
     private Status status;
@@ -32,7 +32,7 @@ private long comments;
     private long version;
 
 
-    public Order(LocalDate ordered, LocalDate required, LocalDate shipped, long comments, Customer customer, Status status) {
+    public Order(LocalDate ordered, LocalDate required, LocalDate shipped, String comments, Customer customer, Status status) {
         this.ordered = ordered;
         this.required = required;
         this.shipped = shipped;
@@ -70,7 +70,7 @@ private long comments;
         return shipped;
     }
 
-    public long getComments() {
+    public String getComments() {
         return comments;
     }
 

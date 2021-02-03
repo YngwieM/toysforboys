@@ -24,7 +24,7 @@ public class JpaOrderRepository implements OrderRepository {
     @Override
     public List<Order> findUnshipped() {
         return manager.createNamedQuery("Order.findUnshipped", Order.class)
-                .setParameter("status1", Status.RESOLVED).setParameter("status2", Status.SHIPPED)
+                .setParameter("status1", Status.CANCELLED).setParameter("status2", Status.SHIPPED)
                 .getResultList();
     }
 }

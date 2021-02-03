@@ -15,22 +15,18 @@ public class Product {
     private long id;
     private String name;
     private String scale;
-    private long discription;
+    private String discription;
     private int inStock;
     private int inOrder;
     private BigDecimal price;
     @ManyToOne(optional = false)
     @JoinColumn(name = "productlineId")
     private ProductLine productLine;
-    @ElementCollection
-    @CollectionTable(name = "orderdetails",
-            joinColumns = @JoinColumn(name = "productId"))
-    private Set<OrderDetail> orderDetails;
     @Version
     private long version;
 
 
-    public Product(String name, String scale, long discription, int inStock, int inOrder, BigDecimal price, ProductLine productLine) {
+    public Product(String name, String scale, String discription, int inStock, int inOrder, BigDecimal price, ProductLine productLine) {
         this.name = name;
         this.scale = scale;
         this.discription = discription;
@@ -38,7 +34,6 @@ public class Product {
         this.inOrder = inOrder;
         this.price = price;
         setProductLine(productLine);
-        this.orderDetails = new LinkedHashSet<>();
     }
 
 
@@ -46,9 +41,6 @@ public class Product {
     protected Product() {
     }
 
-    public Set<OrderDetail> getOrderDetails() {
-        return Collections.unmodifiableSet(orderDetails);
-    }
 
     public void setProductLine(ProductLine productLine) {
         this.productLine = productLine;
@@ -66,7 +58,7 @@ public class Product {
         return scale;
     }
 
-    public long getDiscription() {
+    public String getDiscription() {
         return discription;
     }
 

@@ -11,31 +11,27 @@ import java.util.Set;
 public class OrderDetail {
     private int ordered;
     private BigDecimal priceEach;
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "productId")
     @OrderBy("name")
-    private Set<Product> products;
+    private Product product;
 
-    public OrderDetail(int ordered, BigDecimal priceEach) {
+    public OrderDetail(int ordered, BigDecimal priceEach, Product product) {
         this.ordered = ordered;
         this.priceEach = priceEach;
+        setProduct(product);
 
     }
 
     protected OrderDetail() {}
 
-
-    public Set<Product> getProduct() {
-        return Collections.unmodifiableSet(products);
-    }
-    public boolean add(Product product) {
-        if (product == null) {
-            throw new NullPointerException();
-        }
-        return products.add(product);
+    public Product getProduct() {
+        return product;
     }
 
-
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     public int getOrdered() {
         return ordered;
