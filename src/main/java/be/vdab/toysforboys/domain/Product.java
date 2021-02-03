@@ -2,10 +2,7 @@ package be.vdab.toysforboys.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -15,7 +12,7 @@ public class Product {
     private long id;
     private String name;
     private String scale;
-    private String discription;
+    private String description;
     private int inStock;
     private int inOrder;
     private BigDecimal price;
@@ -29,7 +26,7 @@ public class Product {
     public Product(String name, String scale, String discription, int inStock, int inOrder, BigDecimal price, ProductLine productLine) {
         this.name = name;
         this.scale = scale;
-        this.discription = discription;
+        this.description = discription;
         this.inStock = inStock;
         this.inOrder = inOrder;
         this.price = price;
@@ -58,8 +55,8 @@ public class Product {
         return scale;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
     public int getInStock() {

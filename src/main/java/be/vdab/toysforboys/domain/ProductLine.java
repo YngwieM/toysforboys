@@ -9,12 +9,12 @@ public class ProductLine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private String discription;
+    private String description;
     private long version;
 
     public ProductLine(String name, String discription) {
         this.name = name;
-        this.discription = discription;
+        this.description = discription;
     }
 
     protected ProductLine() {
@@ -28,7 +28,7 @@ public class ProductLine {
         return name;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 }
